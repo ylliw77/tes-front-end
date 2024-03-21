@@ -7,7 +7,7 @@ async function verificationUser(req, res, next) {
     if (!access_token) {
       throw { name: "UNAUTHORIZED" };
     }
-    const { id } = decodeToken(access_token);
+    const { id } = decodeToken(access_token.replace("Bearer", ""));
     const validUser = await User.findByPK(id);
     if (!validUser) {
       throw { name: "UNAUTHORIZED" };

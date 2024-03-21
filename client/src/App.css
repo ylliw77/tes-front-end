@@ -1,42 +1,250 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+:root {
+  --global-text-color-primary: #f5f5f7;
+  --global-navbar-color-primary: black;
+  --global-navbar-gray-alpha: rgba(94, 90, 90, 0.692);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* I might question legality of this shit */
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+a {
+  font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.apple_logo {
+  display: flex;
+  justify-content: center;
+}
+
+.mobile_navbar_container {
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  background-color: var(--global-navbar-color-primary);
+  height: 3rem;
+}
+
+.mobile_navbar_list {
+  padding: 0 2rem;
+  max-width: 62rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  list-style: none;
+}
+
+.mobile_navbar_list a {
+  text-decoration: none;
+  color: var(--global-text-color-primary);
+  opacity: 0.78;
+  transition: 100ms ease-in-out opacity;
+}
+
+.menu_button {
+  cursor: pointer;
+}
+
+.mobile_navbar_list a:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 850px) {
+  .navbar_container {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media screen and (min-width: 850px) {
+  .mobile_navbar_container {
+    display: none;
+  }
+
+  .searchBar_Container {
+    visibility: hidden;
+  }
+
+  .apple_logo:hover {
+    opacity: 0.89;
+  }
+
+  .navbar_container {
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    background-color: var(--global-navbar-color-primary);
+    height: 3rem;
+    font-size: 0.8rem;
+  }
+
+  .nav_list {
+    padding: 0 2rem;
+    max-width: 62rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    list-style: none;
+  }
+
+  .nav_list a {
+    text-decoration: none;
+    color: var(--global-text-color-primary);
+    opacity: 0.78;
+    transition: 100ms ease-in-out opacity;
+  }
+
+  .nav_list a:hover {
+    opacity: 1;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.mobile_nav_items:first-child {
+  height: 20px;
+  width: 20px;
 }
 
-.card {
-  padding: 2em;
+.menu_button {
+  height: 20px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-.read-the-docs {
-  color: #888;
+.menu_button div {
+  opacity: 0.78;
+  height: 1px;
+  width: 18px;
+  background-color: white;
+  transition: 200ms ease-in-out all;
+}
+
+.open .line1 {
+  /*transform: rotate(45deg) translate(10px, 0px);*/
+  transform: translateY(5px) rotate(-45deg);
+}
+
+.open .line2 {
+  /*transform: rotate(-45deg) translate(7px, 3px);*/
+  transform: translateY(-5px) rotate(45deg);
+}
+
+.expansionMenu {
+  background-color: var(--global-navbar-color-primary);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 9.5%;
+  width: 100%;
+  height: 0%;
+  transition: 400ms ease-in-out height;
+}
+
+.searchBar_Container {
+  display: block;
+  position: fixed;
+  z-index: 4;
+  top: 48px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3.2rem;
+}
+
+.searchForm {
+  display: flex;
+  justify-content: center;
+}
+
+.searchBar_Container {
+  background-color: black;
+  width: 100%;
+  border-bottom: 1px solid var(--global-navbar-gray-alpha);
+}
+
+.searchFormWrapper {
+  padding: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(128, 128, 128, 0.4);
+  border-radius: 6px;
+  height: 2.2rem;
+}
+
+.searchFormWrapper button svg {
+  opacity: 0.4;
+}
+
+.searchInput {
+  font-family: "San Francisco";
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0 0.4rem;
+  background-color: transparent;
+  border: none;
+  width: 80vw;
+  color: white;
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.searchSubmitButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.searchResetButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mobile_item_menu {
+  display: flex;
+  z-index: 3;
+  flex-direction: column;
+  padding: 0 2rem;
+  gap: 1.2rem;
+  overflow-y: auto;
+  position: absolute;
+  top: 36px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.mobile_item_menu li {
+  border-bottom: 1px solid var(--global-navbar-gray-alpha);
+}
+
+.mobile_item_menu li a {
+  text-decoration: none;
+  color: var(--global-text-color-primary);
+  font-family: "San Francisco", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 1.1rem;
 }
