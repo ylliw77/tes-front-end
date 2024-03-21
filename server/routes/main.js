@@ -1,7 +1,7 @@
 const ItemController = require("../controllers/ItemController");
 const ProviderController = require("../controllers/ProviderController");
 const TransactionController = require("../controllers/TransactionController");
-const { verificationUser } = require("../middlewares/authentication");
+const  verificationUser  = require("../middlewares/authentication");
 
 const route = require("express").Router();
 

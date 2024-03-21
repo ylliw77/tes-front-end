@@ -18,7 +18,7 @@ module.exports = {
       return el
     })
     await queryInterface.bulkInsert('Providers', providers, {})
-     
+
   },
 
   async down (queryInterface, Sequelize) {

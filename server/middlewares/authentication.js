@@ -1,7 +1,7 @@
 const { decodeToken } = require("../helpers/jwt");
 const { User } = require("../models/index");
 
-export const verificationUser = async (req, res, next) => {
+async function verificationUser(req, res, next) {
   try {
     const { access_token } = req.headers.authorization;
     if (!access_token) {
@@ -14,11 +14,13 @@ export const verificationUser = async (req, res, next) => {
     }
     req.user = {
       id: validUser.id,
-      name : validUser.name,
-      phoneNumber : validUser.phoneNumber
+      name: validUser.name,
+      phoneNumber: validUser.phoneNumber,
     };
     next();
   } catch (err) {
     next(err);
   }
-};
+}
+
+module.exports = verificationUser
