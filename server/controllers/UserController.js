@@ -27,6 +27,7 @@ class UserController {
       if (!isUser || !validPassword(password, isUser.password)) {
         throw {
           name: "USER_NOT_FOUND",
+          message : "Invalid phone number/password"
         };
       }
       const payload = {
