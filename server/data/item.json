@@ -1,0 +1,47 @@
+[
+  {
+    "name": "10 GB",
+    "price": 100000,
+    "providerId": 1
+  },
+  {
+    "name": "15 GB",
+    "price": 1500000,
+    "providerId": 1
+  },
+  {
+    "name": "20 GB",
+    "price": 200000,
+    "providerId": 1
+  },
+  {
+    "name": "10 GB",
+    "price": 100000,
+    "providerId": 2
+  },
+  {
+    "name": "15 GB",
+    "price": 1500000,
+    "providerId": 2
+  },
+  {
+    "name": "20 GB",
+    "price": 200000,
+    "providerId": 2
+  },
+  {
+    "name": "10 GB",
+    "price": 100000,
+    "providerId": 3
+  },
+  {
+    "name": "15 GB",
+    "price": 1500000,
+    "providerId": 3
+  },
+  {
+    "name": "20 GB",
+    "price": 200000,
+    "providerId": 3
+  }
+]
