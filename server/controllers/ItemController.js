@@ -3,7 +3,9 @@ const { Item, Provider } = require("../models/index");
 class ItemController {
   static async getAllItem(req, res, next) {
     try {
-      const response = await Item.findAll();
+      const response = await Item.findAll({
+        include : [Provider]
+      });
       res.json(response);
     } catch (err) {
       next(err);
