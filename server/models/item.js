@@ -11,12 +11,47 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Item.belongsTo(models.Provider,{
+        foreignKey : "providerId"
+      })
+      Item.hasMany(models.Transaction, {
+        foreignKey : "itemId"
+      })
     }
   }
   Item.init({
-    name: DataTypes.STRING,
-    price: DataTypes.INTEGER,
-    categoryId: DataTypes.INTEGER
+    name: {
+      type : DataTypes.STRING,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          msg : "Name is required"
+        },
+        notNull : {
+          msg : "Name is required"
+        }
+      }
+    },
+    price: { type : DataTypes.INTEGER,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          msg : "Price is required"
+        },
+        notNull : {
+          msg : "Price is required"
+        }
+      }},
+    providerId: { type : DataTypes.INTEGER,
+      allowNull : false,
+      validate : {
+        notEmpty : {
+          msg : "Please select your Provider"
+        },
+        notNull : {
+          msg : "Please select your Provider"
+        }
+      }}
   }, {
     sequelize,
     modelName: 'Item',

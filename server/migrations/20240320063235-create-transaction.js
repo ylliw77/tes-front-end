@@ -10,13 +10,29 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references : {
+          model : "Users",
+          key :  "id"
+        },
+        onDelete : "CASCADE",
+        onUpdate : "CASCADE"
       },
       itemId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references : {
+          model : "Items",
+          key : "id"
+        },
+        onDelete : "CASCADE",
+        onUpdate : "CASCADE"
       },
       status: {
         type: Sequelize.BOOLEAN
+      },
+      phoneNumber : {
+        type : Sequelize.STRING,
+        allowNull : false
       },
       createdAt: {
         allowNull: false,

@@ -16,7 +16,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       providerId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references : {
+          key : "id",
+          model : "Providers"
+        },
+        onDelete : "CASCADE",
+        onUpdate : "CASCADE"
       },
       createdAt: {
         allowNull: false,
